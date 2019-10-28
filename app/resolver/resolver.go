@@ -11,9 +11,10 @@ type (
 	Resolver struct {
 		DBClient *gorm.DB
 	}
-	queryResolver struct{ *Resolver }
-	userResolver  struct{ *Resolver }
-	tweetResolver struct{ *Resolver }
+	mutationResolver struct{ *Resolver }
+	queryResolver    struct{ *Resolver }
+	userResolver     struct{ *Resolver }
+	tweetResolver    struct{ *Resolver }
 )
 
 func (r *Resolver) Query() g.QueryResolver {
@@ -21,4 +22,9 @@ func (r *Resolver) Query() g.QueryResolver {
 }
 func (r *Resolver) User() g.UserResolver {
 	return &userResolver{r}
+}
+
+// Mutation returns mutationResolver
+func (r *Resolver) Mutation() g.MutationResolver {
+	return &mutationResolver{r}
 }
