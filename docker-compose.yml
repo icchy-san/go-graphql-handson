@@ -4,9 +4,27 @@ services:
     image: golang:1.13
     container_name: app
     working_dir: /go/src/github.com/ito-lvgs/go-graphql-handson
+    depends_on:
+      - postgres
     volumes:
       - ./app:/go/src/github.com/ito-lvgs/go-graphql-handson
     ports:
       - 3000:3000
     tty:
       true
+
+  postgres:
+    image: postgres:12.0-alpine
+    container_name: postgres
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_INITDB_ARGS: "--encoding=UTF-8"
+      TZ: "Asia/Tokyo"
+    hostname: postgres
+    restart: always
+    user: root
+    volumes:
+      - ./postgres/init:/docker-entrypoint-initdb.d
+    ports:
+      - 5432:5432
