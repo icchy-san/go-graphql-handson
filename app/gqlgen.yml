@@ -5,8 +5,14 @@ exec:
   filename: generated/generated.go
   package: generated
 model:
-  filename: model/models_gen.go
+  filename: model/generated.go
   package: model
 resolver:
-  filename: resolver.go
+  filename: resolver/resolver.go
   type: Resolver
+
+models:
+  User:
+    model: app/model.User
+  Tweet:
+    model: app/model.Tweet

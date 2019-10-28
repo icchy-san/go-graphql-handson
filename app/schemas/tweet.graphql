@@ -1,3 +1,8 @@
 type Tweet {
     id: ID!
+    text: String!
+}
+
+input TweetInput {
+    text: String!
 }

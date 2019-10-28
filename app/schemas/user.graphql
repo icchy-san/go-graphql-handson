@@ -1,0 +1,8 @@
+type User {
+    identifier: ID!
+    name: String!
+}
+
+input CreateUserInput {
+    name: String!
+}
