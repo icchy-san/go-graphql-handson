@@ -1,7 +1,6 @@
 package main
 
 import (
-	h "app/handler"
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
 	"github.com/labstack/gommon/log"
@@ -13,10 +12,11 @@ func main() {
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
 
-	e.GET("/graphql", h.GraphQL())
+	e.POST("/graphql", func(c echo.Context) error {
+		return nil
+	})
 
-	if err := e.Start(":3000"); err != nil {
+	if err := e.Start(":8080"); err != nil {
 		log.Fatalf("ERROR: %s", err)
 	}
-
 }
