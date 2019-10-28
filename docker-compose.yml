@@ -3,13 +3,13 @@ services:
   app:
     image: golang:1.13
     container_name: app
-    working_dir: /go/src/github.com/ito-lvgs/go-graphql-handson
+    working_dir: /go/src/app
     depends_on:
       - postgres
     volumes:
-      - ./app:/go/src/github.com/ito-lvgs/go-graphql-handson
+      - ./app:/go/src/app
     ports:
-      - 3000:3000
+      - 8080:8080
     tty:
       true
 
