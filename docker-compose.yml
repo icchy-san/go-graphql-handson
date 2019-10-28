@@ -6,6 +6,8 @@ services:
     working_dir: /go/src/app
     depends_on:
       - postgres
+    links:
+      - postgres
     volumes:
       - ./app:/go/src/app
     ports:
@@ -26,5 +28,6 @@ services:
     user: root
     volumes:
       - ./postgres/init:/docker-entrypoint-initdb.d
+      - ./postgres/data:/var/lib/pgsql
     ports:
       - 5432:5432
