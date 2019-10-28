@@ -3,8 +3,9 @@ services:
   app:
     image: golang:1.13
     container_name: app
+    working_dir: /go/src/github.com/ito-lvgs/go-graphql-handson
     volumes:
-      - ./app:/go/src/app
+      - ./app:/go/src/github.com/ito-lvgs/go-graphql-handson
     ports:
       - 3000:3000
     tty:

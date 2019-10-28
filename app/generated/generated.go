@@ -3,6 +3,7 @@
 package generated
 
 import (
+	"app/model"
 	"bytes"
 	"context"
 	"errors"
@@ -12,7 +13,6 @@ import (
 
 	"github.com/99designs/gqlgen/graphql"
 	"github.com/99designs/gqlgen/graphql/introspection"
-	"github.com/ito-lvgs/go-graphql-handson/model"
 	"github.com/vektah/gqlparser"
 	"github.com/vektah/gqlparser/ast"
 )
@@ -230,7 +230,7 @@ func (ec *executionContext) _Query_tweet(ctx context.Context, field graphql.Coll
 	res := resTmp.(*model.Tweet)
 	rctx.Result = res
 	ctx = ec.Tracer.StartFieldChildExecution(ctx)
-	return ec.marshalNTweet2ᚖgithubᚗcomᚋitoᚑlvgsᚋgoᚑgraphqlᚑhandsonᚋmodelᚐTweet(ctx, field.Selections, res)
+	return ec.marshalNTweet2ᚖappᚋmodelᚐTweet(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query___type(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -1862,11 +1862,11 @@ func (ec *executionContext) marshalNString2string(ctx context.Context, sel ast.S
 	return res
 }
 
-func (ec *executionContext) marshalNTweet2githubᚗcomᚋitoᚑlvgsᚋgoᚑgraphqlᚑhandsonᚋmodelᚐTweet(ctx context.Context, sel ast.SelectionSet, v model.Tweet) graphql.Marshaler {
+func (ec *executionContext) marshalNTweet2appᚋmodelᚐTweet(ctx context.Context, sel ast.SelectionSet, v model.Tweet) graphql.Marshaler {
 	return ec._Tweet(ctx, sel, &v)
 }
 
-func (ec *executionContext) marshalNTweet2ᚖgithubᚗcomᚋitoᚑlvgsᚋgoᚑgraphqlᚑhandsonᚋmodelᚐTweet(ctx context.Context, sel ast.SelectionSet, v *model.Tweet) graphql.Marshaler {
+func (ec *executionContext) marshalNTweet2ᚖappᚋmodelᚐTweet(ctx context.Context, sel ast.SelectionSet, v *model.Tweet) graphql.Marshaler {
 	if v == nil {
 		if !ec.HasError(graphql.GetResolverContext(ctx)) {
 			ec.Errorf(ctx, "must not be null")

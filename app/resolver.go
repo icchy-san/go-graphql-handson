@@ -1,10 +1,9 @@
-package app
+package go_graphql_handson
 
 import (
+	"app/generated"
+	"app/model"
 	"context"
-
-	"github.com/ito-lvgs/go-graphql-handson/generated"
-	"github.com/ito-lvgs/go-graphql-handson/model"
 )
 
 // THIS CODE IS A STARTING POINT ONLY. IT WILL NOT BE UPDATED WITH SCHEMA CHANGES.
