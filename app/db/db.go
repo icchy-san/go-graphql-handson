@@ -10,7 +10,7 @@ import (
 
 var db *gorm.DB
 
-func InitDB() {
+func InitDB() *gorm.DB {
 	log.Print(GetDBDSN())
 	db, err := gorm.Open("postgres", GetDBDSN())
 	if err != nil {
@@ -18,6 +18,7 @@ func InitDB() {
 	}
 
 	db.DB().SetMaxOpenConns(10)
+	return db
 }
 
 func GetDBDSN() string {
@@ -32,6 +33,5 @@ func GetDBDSN() string {
 }
 
 func GetDBConnection() *gorm.DB {
-	//return db.Set("gorm:auto_update", false)
-	return nil
+	return db
 }

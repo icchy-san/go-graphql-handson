@@ -16,7 +16,7 @@ func main() {
 		log.Printf("failed to load .env file")
 	}
 
-	db.InitDB()
+	db := db.InitDB()
 	e := echo.New()
 
 	e.Use(middleware.Logger())
@@ -24,7 +24,7 @@ func main() {
 
 	e.POST("/graphql", func(c echo.Context) error {
 		resolver := &r.Resolver{
-			DBClient: db.GetDBConnection(),
+			DBClient: db,
 		}
 
 		h := handler.GraphQL(g.NewExecutableSchema(g.Config{Resolvers: resolver}))
