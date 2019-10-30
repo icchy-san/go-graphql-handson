@@ -6,3 +6,7 @@ type User {
 input CreateUserInput {
     name: String!
 }
+
+input UserInput {
+    identifier: ID!
+}

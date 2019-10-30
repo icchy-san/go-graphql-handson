@@ -9,3 +9,7 @@ type CreateUserInput struct {
 type TweetInput struct {
 	Text string `json:"text"`
 }
+
+type UserInput struct {
+	Identifier string `json:"identifier"`
+}

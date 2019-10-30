@@ -1,5 +1,6 @@
 type Query {
   tweet(input: TweetInput!): Tweet!
+  user(input: UserInput!): User!
 }
 
 type Mutation {

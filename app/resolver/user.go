@@ -17,3 +17,12 @@ func (r *mutationResolver) CreateUser(ctx context.Context, input m.CreateUserInp
 
 	return &m.User{}, nil
 }
+
+func (r *queryResolver) User(ctx context.Context, input m.UserInput) (*m.User, error) {
+	var user m.User
+	if err := user.FindByIdentifier(r.DBClient, input.Identifier); err != nil {
+		return &m.User{}, err
+	}
+
+	return &user, nil
+}

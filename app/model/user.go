@@ -1,6 +1,10 @@
 package model
 
-import "time"
+import (
+	"errors"
+	"strconv"
+	"time"
+)
 import "github.com/jinzhu/gorm"
 
 type (
@@ -16,4 +20,17 @@ type (
 func (u *User) Create(db *gorm.DB, input CreateUserInput) error {
 	u.Name = input.Name
 	return db.Create(u).Error
+}
+
+func (u *User) FindByIdentifier(db *gorm.DB, id string) error {
+	if id == "" {
+		return errors.New("id_not_found")
+	}
+
+	uID, err := strconv.ParseUint(id, 10, 64)
+
+	if err != nil {
+		return err
+	}
+	return db.Where("id = ?", uID).First(&u).Error
 }
