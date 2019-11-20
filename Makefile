@@ -4,7 +4,7 @@ up:
 down:
 	docker-compose down
 
-restart: stop start
+restart: down up
 
 gqlgen:
 	docker-compose exec app /bin/bash -c "go generate ./..."
