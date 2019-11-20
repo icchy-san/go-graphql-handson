@@ -23,6 +23,9 @@ func (r *Resolver) Query() g.QueryResolver {
 func (r *Resolver) User() g.UserResolver {
 	return &userResolver{r}
 }
+func (r *Resolver) Tweet() g.TweetResolver {
+	return &tweetResolver{r}
+}
 
 // Mutation returns mutationResolver
 func (r *Resolver) Mutation() g.MutationResolver {

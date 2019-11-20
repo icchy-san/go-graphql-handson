@@ -1,8 +1,14 @@
 type Tweet {
     id: ID!
     text: String!
+    user: User!
+    createdAt: String!
+}
+
+input CreateTweetInput {
+    text: String!
 }
 
 input TweetInput {
-    text: String!
+    id: ID!
 }

@@ -2,13 +2,17 @@
 
 package model
 
+type CreateTweetInput struct {
+	Text string `json:"text"`
+}
+
 type CreateUserInput struct {
 	Name       string `json:"name"`
 	Identifier string `json:"identifier"`
 }
 
 type TweetInput struct {
-	Text string `json:"text"`
+	ID string `json:"id"`
 }
 
 type UserInput struct {
