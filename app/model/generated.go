@@ -3,7 +3,8 @@
 package model
 
 type CreateUserInput struct {
-	Name string `json:"name"`
+	Name       string `json:"name"`
+	Identifier string `json:"identifier"`
 }
 
 type TweetInput struct {
@@ -11,5 +12,5 @@ type TweetInput struct {
 }
 
 type UserInput struct {
-	Identifier string `json:"identifier"`
+	ID string `json:"id"`
 }
