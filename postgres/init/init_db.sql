@@ -12,7 +12,6 @@ CREATE TABLE IF NOT EXISTS users (
 
 CREATE TABLE IF NOT EXISTS tweets (
   id serial NOT NULL,
-  identifier varchar(255) NOT NULL,
   text VARCHAR(255) NOT NULL,
   USER_id INT REFERENCES users(id),
   created_at TIMESTAMP,
