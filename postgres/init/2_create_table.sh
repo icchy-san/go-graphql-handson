@@ -1,5 +1,6 @@
-CREATE DATABASE IF NOT EXISTS  dev;
+#!/bin/bash
 
+psql -U root -d dev << "EOSQL"
 CREATE TABLE IF NOT EXISTS users (
   id SERIAL NOT NULL,
   identifier VARCHAR(255) NOT NULL,
@@ -9,7 +10,9 @@ CREATE TABLE IF NOT EXISTS users (
   deleted_at TIMESTAMP,
   PRIMARY KEY (id)
 );
+EOSQL
 
+psql -U root -d dev << "EOSQL"
 CREATE TABLE IF NOT EXISTS tweets (
   id serial NOT NULL,
   text VARCHAR(255) NOT NULL,
@@ -19,6 +22,4 @@ CREATE TABLE IF NOT EXISTS tweets (
   deleted_at TIMESTAMP,
   PRIMARY KEY (id)
 );
-
--- sample below
--- INSERT INTO users VALUES (1, 'dklajf', 'icchy', now());
+EOSQL
